@@ -1,0 +1,11 @@
+<div class="col-md-4 mb-4">
+  <div class="card h-100 shadow-sm">
+<img src="{{ url_for('static', filename='img/' ~ c.img) }}" class="car-photo" alt="{{ c.name }}"
+     onerror="this.style.background='{{ c.color }}'; this.removeAttribute('src');">    <div class="card-body">
+      <h5>{{ c.name }}</h5>
+      <p class="text-muted mb-1">{{ c.year }} • {{ c.type }} • {{ c.trans }}</p>
+      <p class="fw-bold text-primary">{{ c.price|rupiah }}</p>
+      <a href="{{ url_for('car_detail', car_id=c.id) }}" class="btn btn-outline-primary btn-sm">Lihat Detail</a>
+    </div>
+  </div>
+</div>

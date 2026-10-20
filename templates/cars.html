@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Daftar Mobil{% endblock %}
+{% block content %}
+<div class="container mt-4">
+  <h3>Daftar Mobil</h3>
+  <div class="mb-4">
+    <a href="{{ url_for('cars') }}" class="btn btn-sm {{ 'btn-dark' if not selected else 'btn-outline-dark' }}">Semua</a>
+    {% for t in ['MPV','Hatchback','SUV'] %}
+    <a href="{{ url_for('cars', tipe=t) }}" class="btn btn-sm {{ 'btn-dark' if selected==t else 'btn-outline-dark' }}">{{ t }}</a>
+    {% endfor %}
+  </div>
+  <div class="row">{% for c in cars %}{% include "_card.html" %}{% else %}<p>Tidak ada mobil.</p>{% endfor %}</div>
+</div>
+{% endblock %}

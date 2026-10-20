@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}{{ car.name }}{% endblock %}
+{% block content %}
+<div class="container mt-4">
+  <div class="row">
+<img src="{{ url_for('static', filename='img/' ~ car.img) }}" class="img-fluid rounded shadow" alt="{{ car.name }}">    <div class="col-md-6">
+      <h2>{{ car.name }}</h2>
+      <h4 class="text-primary">{{ car.price|rupiah }}</h4>
+      <ul class="list-group mb-3">
+        <li class="list-group-item">Tahun: {{ car.year }}</li>
+        <li class="list-group-item">Tipe: {{ car.type }}</li>
+        <li class="list-group-item">Transmisi: {{ car.trans }}</li>
+      </ul>
+      <p>{{ car.desc }}</p>
+      <a href="{{ url_for('contact') }}" class="btn btn-primary">Hubungi Kami</a>
+      <a href="{{ url_for('cars') }}" class="btn btn-link">← Kembali</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
